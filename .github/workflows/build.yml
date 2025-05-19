@@ -17,5 +17,8 @@ jobs:
 
       - uses: jdx/mise-action@v2
 
+      - name: Install tool versions via mise
+        run: mise install
+
       - name: Build with Maven
         run: mvn -B package --file pom.xml
