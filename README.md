@@ -45,5 +45,24 @@ curl --header "Content-Type: application/json" --request POST --data '{"name":"N
 
 Update title and description:
 ```shell
-curl --header "Content-Type: application/json" --request PUT --data '{"id":19,"name":"New Café (UBT)","description":"My description","type":"CAFE","campus":"MAIN","street":"Teststraße","houseNumber":"99","postalCode":12345,"city":"Bayreuth"}%' http://localhost:8080/api/pos/19 # set correct task id here and in the body
+curl --header "Content-Type: application/json" --request PUT --data '{"id":4,"name":"Stadtbaeckerei Schaller GmbH","description":"My description","type":"BAKERY","campus":"MAIN","street":"Nuernberger Str.","houseNumber":"3b","postalCode":95448,"city":"Bayreuth"}%' http://localhost:8080/api/pos/4 # set correct task id here and in the body
+```
+
+I actually used:
+```shell
+$body = '{
+  "name":"Stadtbäckerei Schaller GmbH",
+  "description":"",
+  "type":"BAKERY",
+  "campus":"MAIN",
+  "street":"Nuernberger Str.",
+  "houseNumber":"3b",
+  "postalCode":95448,
+  "city":"Bayreuth"
+}'
+
+curl -Uri http://localhost:8080/api/pos `
+     -Method POST `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body $body
 ```
